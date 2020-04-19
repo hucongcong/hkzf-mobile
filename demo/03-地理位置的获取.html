@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 获取当前的地理定位
+      // 可以通过
+      //  position.coords.longitude 经度 121.59604367028464
+      //  position.coords.latitude 纬度  31.041932017108792
+      navigator.geolocation.getCurrentPosition(
+        function (position) {
+          console.log('获取地理位置成功', position)
+        },
+        function (err) {
+          console.log('获取地理位置失败', err)
+        }
+      )
+    </script>
+  </body>
+</html>

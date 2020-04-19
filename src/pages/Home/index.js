@@ -37,6 +37,7 @@ class Home extends React.Component {
       // 不能写死这个默认高亮的 selectedTab, 这个值应该动态获取
       selectedTab: this.props.location.pathname,
     }
+    console.log('哈哈哈')
   }
   render() {
     return (
@@ -65,9 +66,6 @@ class Home extends React.Component {
                 selectedIcon={<span className={`iconfont ${item.icon}`}></span>}
                 selected={this.state.selectedTab === item.path}
                 onPress={() => {
-                  this.setState({
-                    selectedTab: item.path,
-                  })
                   this.props.history.push(item.path)
                 }}
               ></TabBar.Item>
@@ -76,6 +74,18 @@ class Home extends React.Component {
         </div>
       </div>
     )
+  }
+  // 组件更新的钩子函数,也要修改selectedTab高亮
+  // 以后如果非要在componentDidUpdate中更新数据，注意一定要有条件
+  componentDidUpdate(prevProps) {
+    // console.log('上次', prevProps)
+    // console.log('本次', this.props)
+    // console.log('我发生了改变')
+    if (prevProps.location.pathname !== this.props.location.pathname) {
+      this.setState({
+        selectedTab: this.props.location.pathname,
+      })
+    }
   }
 }
 

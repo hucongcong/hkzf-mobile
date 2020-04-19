@@ -4,9 +4,13 @@ $color: #fff;
   padding: 0;
   list-style: none;
   box-sizing: border-box;
+  // 避免控制台出现触摸时报错信息
+  touch-action: pan-y;
 }
 html,
-body {
+body,
+#root,
+.app {
   height: 100%;
 }
 body {

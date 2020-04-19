@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var arr = ['a', 'b', 'a', 'c', 'b', 'c', 'a', 'a', 'b', 'c', 'a']
+
+      // 1. 遍历这个数组
+      // 2. 判断数组的这个值在对象中是否存在。
+      // 3. 如果不存在， 让对象新增一个属性。次数为1
+      // 4. 如果存在，让原来的值+1
+
+      // 得到的结果  {  a:4, b: 2, c: 2 }‘
+
+      var obj = {}
+      arr.forEach((item) => {
+        console.log(item)
+        // 判断item是否是obj的key
+        if (item in obj) {
+          // 有
+          obj[item]++
+        } else {
+          obj[item] = 1
+        }
+      })
+      console.log(obj)
+    </script>
+  </body>
+</html>
